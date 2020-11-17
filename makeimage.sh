@@ -1,1 +1,1 @@
-docker build -t rails-image .
+docker build -t rails_image .
