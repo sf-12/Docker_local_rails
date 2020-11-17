@@ -1,4 +1,4 @@
-# Docker_local_rails
+# Dockerfile_for_Rails
 
 Rails 開発環境構築用の Dockerfile です。<br>
 Docker 学習中のため、随時更新予定。<br>
