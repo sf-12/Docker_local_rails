@@ -1,7 +1,7 @@
 # Docker_local_rails
 
-Rails 開発環境構築用の Dockerfile です。
-Docker 学習中のため、随時更新予定。
+Rails 開発環境構築用の Dockerfile です。<br>
+Docker 学習中のため、随時更新予定。<br>
 
 ## 使い方
 
@@ -24,7 +24,7 @@ rails_image という image ファイルが作成されているはず。<br>
 ### 3.image ファイルからコンテナを作成
 
 ```
-$ docker run -it --name #{NAME} -p 3000:3000  rails_image /bin/bash
+$ docker run -it --name #{NAME} -p 3000:3000 rails_image /bin/bash
 ```
 
 #{NAME}はコンテナの名前。好きな名前をつける。<br>
@@ -49,4 +49,4 @@ $ rails new #{APP_NAME}
 - Vim
 - Git
 
-※ node および yarn も Rails の導入に必要なので入っている
+※ node および yarn も Rails の導入に必要なので入っている<br>
