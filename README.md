@@ -10,8 +10,6 @@ Docker 学習中のため、随時更新予定。
 ```
 $ sh ./makeimage.sh
 ```
-
-<br>
 <br>
 
 ### 2.image ファイルが作成できたことを確認
@@ -20,8 +18,7 @@ $ sh ./makeimage.sh
 $ docker images
 ```
 
-rails_image という image ファイルが作成されているはず。
-<br>
+rails_image という image ファイルが作成されているはず。<br>
 <br>
 
 ### 3.image ファイルからコンテナを作成
@@ -30,9 +27,8 @@ rails_image という image ファイルが作成されているはず。
 $ docker run -it --name #{NAME} -p 3000:3000  rails_image /bin/bash
 ```
 
-#{NAME}はコンテナの名前。好きな名前をつける。
-コンテナを作成するとコンテナ内に入った状態になる。
-<br>
+#{NAME}はコンテナの名前。好きな名前をつける。<br>
+コンテナを作成するとコンテナ内に入った状態になる。<br>
 <br>
 
 ### 4.rails アプリを作成する
@@ -43,8 +39,7 @@ $ rails new #{APP_NAME}
 ```
 
 作業用ディレクトリとして work を用意してあるので、
-そのなかで rails アプリを作成する
-<br>
+そのなかで rails アプリを作成する<br>
 <br>
 
 ## image ファイルに入っているもの<br>
