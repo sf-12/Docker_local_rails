@@ -50,3 +50,19 @@ $ rails new #{APP_NAME}
 - Git
 
 ※ node および yarn も Rails の導入に必要なので入っている<br>
+<br>
+
+## その他
+
+### ブラウザ上に表示したい時
+rails sにオプションをつけて実行<br>
+
+```
+$ rails s -b 0.0.0.0
+```
+<br>
+ブラウザのURLには以下を指定<br>
+
+```
+http://localhost:3000/
+```
