@@ -1,0 +1,1 @@
+docker run -it --name rails_container -p 3000:3000 rails_image /bin/bash

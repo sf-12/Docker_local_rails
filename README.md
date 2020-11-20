@@ -10,6 +10,7 @@ Docker 学習中のため、随時更新予定。<br>
 ```
 $ sh ./makeimage.sh
 ```
+
 <br>
 
 ### 2.image ファイルが作成できたことを確認
@@ -24,7 +25,7 @@ rails_image という image ファイルが作成されているはず。<br>
 ### 3.image ファイルからコンテナを作成
 
 ```
-$ docker run -it --name #{NAME} -p 3000:3000 rails_image /bin/bash
+$ docker run -it --name #{NAME} -p 3000:3000 -p 22:22 rails_image /bin/bash
 ```
 
 #{NAME}はコンテナの名前。好きな名前をつける。<br>
@@ -55,14 +56,31 @@ $ rails new #{APP_NAME}
 ## その他
 
 ### ブラウザ上に表示したい時
-rails sにオプションをつけて実行<br>
+
+rails s にオプションをつけて実行<br>
 
 ```
 $ rails s -b 0.0.0.0
 ```
+
 <br>
 ブラウザのURLには以下を指定<br>
 
 ```
 http://localhost:3000/
+```
+
+### git の設定
+
+```
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+ssh git@github.com
+```
+
+github にキーを登録
+
+```
+$　git config --global user.name "GitHubのユーザ名"
+$　git config --global user.email "GitHubに登録したメールアドレス
 ```

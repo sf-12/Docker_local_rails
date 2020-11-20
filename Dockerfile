@@ -1,16 +1,33 @@
-FROM ruby:2.7.0
-RUN apt-get update -qq && apt-get install -y nodejs vim
+# 元になるdocker imageを指定
+FROM ruby:2.7.2-alpine3.12
 
-# install yarn
-# https://yarnpkg.com/en/docs/install#linux-tab
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update
-RUN apt-get install -y yarn
+# 環境変数を設定
+ENV INSTALL_PACKAGES="gcc g++ make nodejs vim yarn libxslt-dev libxml2-dev libc-dev linux-headers mysql-client mysql-dev" \
+    BUNDLER_VERSION="2.1.4" \
+    APP_ROOT_DIR="/myApp" \
+    LANG=C.UTF-8 \
+    TZ=Asia/Tokyo
 
-# install rails 
-RUN gem install -v 6.0.0 rails
+# 作業ディレクトリを作成
+RUN mkdir APP_ROOT_DIR
 
-RUN mkdir work
-# CMD ["/bin/bash"]
+# 作業ディレクトリを指定
+WORKDIR $APP_ROOT_DIR
+
+# ホストからgemfileをコピー
+COPY Gemfile $APP_ROOT_DIR/Gemfile
+COPY Gemfile.lock $APP_ROOT_DIR/Gemfile.lock
+
+# 各種インストール
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache build-base ${INSTALL_PACKAGES} && \
+    gem install bundler && \
+    bundle install
+
+# ホストからWebアプリをコピー
+
+# add alias
+# RUN echo 'alias ll=ls -la' >> ~/.bashrc
+
 
